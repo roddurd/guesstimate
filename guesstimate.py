@@ -19,10 +19,10 @@ def multiply():
 		num1,num2 = randint(2,100), randint(2,100)
 		return ("What is " + str(num1) + " x " + str(num2) + "?", num1*num2)
 	elif difficulty == "m":
-		num1,num2 = randint(8,10000), randint(8,10000)
+		num1,num2 = randint(8,1000), randint(8,1000)
 		return ("What is " + str(num1) + " x " + str(num2) + "?", num1*num2)
 	elif difficulty == "h":
-		num1,num2 = randint(101,3000000), randint(108,3000000)
+		num1,num2 = randint(101,30000), randint(108,30000)
 		return ("What is " + str(num1) + " x " + str(num2) + "?", num1*num2)
 		
 def divide():
@@ -31,10 +31,10 @@ def divide():
 		num1,num2 = randint(2,100), randint(2,100)
 		return ("What is " + str(num1) + " / " + str(num2) + "?", num1/num2)
 	elif difficulty == "m":
-		num1,num2 = randint(8,10000), randint(8,10000)
+		num1,num2 = randint(8,1000), randint(8,1000)
 		return ("What is " + str(num1) + " / " + str(num2) + "?", num1/num2)
 	elif difficulty == "h":
-		num1,num2 = randint(101,3000000), randint(108,3000000)
+		num1,num2 = randint(101,300000), randint(108,30000)
 		return ("What is " + str(num1) + " / " + str(num2) + "?", num1/num2)
 def add():
 	global difficulty
@@ -89,11 +89,11 @@ while True:
 			end = time()
 
 
-	score += abs(answer - guess) / 10**(math.log10(max((abs(answer),abs(guess))))-1)
+	score += abs(answer - guess) / 10**(math.log10(max((abs(answer),abs(guess))))-2)
 	print("The correct answer was:", answer)
 	print("You were off by ", abs(guess-answer))
 	print("You took: ", str(round(end-start,2)), " seconds")
-	print("Score: ", score,"\n")
+	print("Score: ", round(score,2),"\n")
 	
 
 
