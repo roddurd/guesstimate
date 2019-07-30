@@ -1,5 +1,5 @@
 import math
-from timeit import timeit
+from time import time
 from random import randint, choice
 difficulty = input("Select difficulty: (E)asy (M)edium (H)ard\n")
 difficulty = difficulty[0].strip().lower()
@@ -61,13 +61,13 @@ def subtract():
 def exponentiate():
 	global difficulty
 	if difficulty == "e":
-		num1,num2 = randint(2,100), randint(2,100)
+		num1,num2 = randint(2,100), randint(2,9)
 		return ("What is " + str(num1) + " ^ " + str(num2) + "?", num1**num2)
 	elif difficulty == "m":
-		num1,num2 = randint(8,10000), randint(8,10000)
+		num1,num2 = randint(8,10000), randint(2,39)
 		return ("What is " + str(num1) + " ^ " + str(num2) + "?", num1**num2)
 	elif difficulty == "h":
-		num1,num2 = randint(101,3000000), randint(108,3000000)
+		num1,num2 = randint(101,3000000), randint(8,50)
 		return ("What is " + str(num1) + " ^ " + str(num2) + "?", num1**num2)
 
 
@@ -75,16 +75,23 @@ def exponentiate():
 		
 while True:
 	question, answer = choice((multiply(), divide(), add(), subtract(), exponentiate()))
-	start = timeit()
+	start = time()
 	guess = input(question+"\nYour answer: ")
-	end = timeit()
+	end = time()
 	if guess[0].lower() == 'q':
 		break
-	guess = int(guess)
+	while not isinstance(guess, int):
+		try:
+			guess = int(guess)
+		except ValueError as verr:
+			print("Your answer didn't make sense. Try again: ")
+			guess = input()
+
+
 	score += abs(answer - guess) / 10**(math.log10(max((answer,guess)))-1)
 	print("The correct answer was:", answer)
 	print("You were off by ", abs(guess-answer))
-	print("You took: ", start-end, " time")
+	print("You took: ", str(round(end-start,2)), " seconds")
 	print("Score: ", score,"\n")
 	
 
