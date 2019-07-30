@@ -64,10 +64,10 @@ def exponentiate():
 		num1,num2 = randint(2,100), randint(2,9)
 		return ("What is " + str(num1) + " ^ " + str(num2) + "?", num1**num2)
 	elif difficulty == "m":
-		num1,num2 = randint(8,10000), randint(2,39)
+		num1,num2 = randint(8,10000), randint(2,15)
 		return ("What is " + str(num1) + " ^ " + str(num2) + "?", num1**num2)
 	elif difficulty == "h":
-		num1,num2 = randint(101,3000000), randint(8,50)
+		num1,num2 = randint(101,3000000), randint(8,26)
 		return ("What is " + str(num1) + " ^ " + str(num2) + "?", num1**num2)
 
 
