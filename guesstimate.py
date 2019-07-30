@@ -86,6 +86,7 @@ while True:
 		except ValueError as verr:
 			print("Your answer didn't make sense. Try again: ")
 			guess = input()
+			end = time()
 
 
 	score += abs(answer - guess) / 10**(math.log10(max((answer,guess)))-1)
