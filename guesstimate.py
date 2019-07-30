@@ -89,7 +89,7 @@ while True:
 			end = time()
 
 
-	score += abs(answer - guess) / 10**(math.log10(max((answer,guess)))-1)
+	score += abs(answer - guess) / 10**(math.log10(max((abs(answer),abs(guess))))-1)
 	print("The correct answer was:", answer)
 	print("You were off by ", abs(guess-answer))
 	print("You took: ", str(round(end-start,2)), " seconds")
