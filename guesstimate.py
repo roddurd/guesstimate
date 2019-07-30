@@ -1,4 +1,5 @@
-import timeit, math
+import math
+from timeit import timeit
 from random import randint, choice
 difficulty = input("Select difficulty: (E)asy (M)edium (H)ard\n")
 difficulty = difficulty[0].strip().lower()
@@ -74,13 +75,16 @@ def exponentiate():
 		
 while True:
 	question, answer = choice((multiply(), divide(), add(), subtract(), exponentiate()))
+	start = timeit()
 	guess = input(question+"\nYour answer: ")
+	end = timeit()
 	if guess[0].lower() == 'q':
 		break
 	guess = int(guess)
 	score += abs(answer - guess) / 10**(math.log10(max((answer,guess)))-1)
 	print("The correct answer was:", answer)
 	print("You were off by ", abs(guess-answer))
+	print("You took: ", start-end, " time")
 	print("Score: ", score,"\n")
 	
 
