@@ -14,8 +14,7 @@ print("=========================")
 print("enter 'quit' or 'q' at any time to quit the game")
 
 	
-def multiply():
-	global difficulty
+def multiply(difficulty):
 	if difficulty == "e":
 		num1,num2 = randint(2,100), randint(2,100)
 		return ("What is " + str(num1) + " x " + str(num2) + "?", num1*num2)
@@ -25,9 +24,7 @@ def multiply():
 	else:
 		num1,num2 = randint(101,30000), randint(108,30000)
 		return ("What is " + str(num1) + " x " + str(num2) + "?", num1*num2)
-		
-def divide():
-	global difficulty
+def divide(difficulty):
 	if difficulty == "e":
 		num1,num2 = randint(2,100), randint(2,100)
 		return ("What is " + str(num1) + " / " + str(num2) + "?", num1/num2)
@@ -37,8 +34,7 @@ def divide():
 	else:
 		num1,num2 = randint(101,300000), randint(108,30000)
 		return ("What is " + str(num1) + " / " + str(num2) + "?", num1/num2)
-def add():
-	global difficulty
+def add(difficulty):
 	if difficulty == "e":
 		num1,num2 = randint(2,100), randint(2,100)
 		return ("What is " + str(num1) + " + " + str(num2) + "?", num1+num2)
@@ -48,8 +44,7 @@ def add():
 	else:
 		num1,num2 = randint(101,3000000), randint(108,3000000)
 		return ("What is " + str(num1) + " + " + str(num2) + "?", num1+num2)
-def subtract():
-	global difficulty
+def subtract(difficulty):
 	if difficulty == "e":
 		num1,num2 = randint(2,100), randint(2,100)
 		return ("What is " + str(num1) + " - " + str(num2) + "?", num1-num2)
@@ -59,8 +54,7 @@ def subtract():
 	else:
 		num1,num2 = randint(101,3000000), randint(108,3000000)
 		return ("What is " + str(num1) + " - " + str(num2) + "?", num1-num2)
-def exponentiate():
-	global difficulty
+def exponentiate(difficulty):
 	if difficulty == "e":
 		num1,num2 = randint(2,11), randint(2,9)
 		return ("What is " + str(num1) + " ^ " + str(num2) + "?", num1**num2)
@@ -75,7 +69,7 @@ def exponentiate():
 
 		
 while True:
-	question, answer = choice((multiply(), divide(), add(), subtract(), exponentiate()))
+	question, answer = choice((multiply(difficulty), divide(difficulty), add(difficulty), subtract(difficulty), exponentiate(difficulty)))
 	start = time()
 	guess = input(question+"\nYour answer: ")
 	end = time()
